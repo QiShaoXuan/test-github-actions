@@ -1,0 +1,17 @@
+name: First Test
+on: [push]
+
+jobs:
+  build:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Build and Deploy
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
+          BUILD_SCRIPT: npm install && npm run build
+        run: |
+            echo $ACCESS_TOKEN
